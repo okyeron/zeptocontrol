@@ -1,0 +1,66 @@
+MIDI Implementation Chart
+
+O = yes
+x = no
+
+Each Mode transmits keyswtich note numbers on separate channels
+JUMP = Channel 1
+MASH = Channel 2
+BASS = Channel 3
+
+Function                      Transmitted              Recognized              Remarks 
+---------------------------------------------------------------------------------------------------------
+
+MIDI channels           |           O           |            O            |    
+Note numbers            |           O           |            O            | Notes are sent on Ch. 1-3 depending on Mode
+Program change          |           x           |            x            |    
+Bank select             |           x           |            x            |    
+
+Velocity Note-On        |           x           |            x            |    
+Velocity Note-Off       |           x           |            x            |    
+Channel Aftertouch      |           x           |            x            |    
+Poly (Key) Aftertouch   |           x           |            x            |    
+Pitch Bend              |           x           |            x            |    
+
+System Exclusive        |           0           |            x            | SYSEX is sent to web browser for debug
+
+System Real Time / Common
+---------------------------------------------------------------------------------------------------------
+MIDI Clock            |           O           |            O            |    
+Start                 |           O           |            O            |    
+Continue              |           O           |            O            |    
+Stop                  |           O           |            O            |    
+Song Position Pointer |           x           |            x            |    
+Song Select           |           x           |            x            |    
+---------------------------------------------------------------------------------------------------------
+
+Control                      Transmitted              Recognized              Remarks 
+---------------------------------------------------------------------------------------------------------
+ 7                    |           O           |            O            |    Volume (A+Z)
+ 8                    |           x           |            x            |
+ 9                    |           x           |            x            |
+10                    |           x           |            x            |
+11                    |           x           |            x            |
+12                    |           O           |            O            |    Knob X
+13                    |           O           |            O            |    Knob Y
+14                    |           O           |            O            |    Knob Z
+15                    |           O           |            O            |    Tempo (A+X)
+16                    |           O           |            O            |    Pitch (A+Y)
+18                    |           O           |            O            |    Rand Sequence (B+X)
+19                    |           O           |            O            |    Filter (B+Y)
+20                    |           O           |            O            |    Bass Volume (B+Z)
+21                    |           O           |            O            |    Sample Select (C+X)
+22                    |           O           |            O            |    Rand Tunnel (C+Y)
+23                    |           O           |            O            |    Quant (C+Z)
+24                    |           O           |            O            |    Rand Jump2 (D+X)
+25                    |           O           |            O            |    Rand FX (D+Y) - (aka Grimoire Probability)
+26                    |           O           |            O            |    Rand FX bank (D+Z) - (aka Grimoire)
+---------------------------------------------------------------------------------------------------------
+
+Not Implemented
+---------------------------------------------------------------------------------------------------------
+Local On/Off
+All Notes Off
+Active Sensing
+System Reset
+
